@@ -16,11 +16,11 @@ const manejadorPeticiones = (req, res) => {
         case "/texto":
             /* Inicio */
             //Agregue el encabezado a la respuesta con res.setHeader con el nombre "Content-Type" y el valor "text/plain"
-            
+            res.setHeader("Content-Type","text/plain");
             //Agregue el codigo de estado con res.writeHead con el valor 200
-            
+            res.writeHead(200);
             //Escriba la respuesta con res.end con el texto `Esto es un texto`
-            
+            res.end('Esto es un texto');
             break;
             /* Fin */
 
@@ -31,12 +31,10 @@ const manejadorPeticiones = (req, res) => {
             /* Inicio */
 
             //Agregue las cabeceras "Content-Type" para JSON ("application/json") y con estado 200
-            // Convierta el objeto libros a una cadena de texto JSON utilizando JSON.stringify
-
-                 
-            // Coloque la cadena de texto JSON en la respuesta con res.end
-
-                
+            //Convierta el objeto libros como string y coloque el string en la respuesta. Utilice la función JSON.stringify
+            res.setHeader("Content-Type","application/json")
+            res.writeHead(200)
+            res.end(JSON.stringify(libros))
             /* Fin */
             break;
 
@@ -48,9 +46,9 @@ const manejadorPeticiones = (req, res) => {
 
             //Agregue las cabeceras "Content-Type" para HTML y con estado 200
             //Escriba la respuesta con res.end con el texto  `<html><body><h1>Esta es una cabecera de nivel 1</h1></body></html>`
-                 
-
-                
+            res.setHeader("Content-Type","text/html")
+            res.writeHead(200)
+            res.end('<html><body><h1>Esta es una cabecera de nivel 1</h1></body></html>')
             /* Fin */
             break;
 
@@ -61,9 +59,9 @@ const manejadorPeticiones = (req, res) => {
 
             //Agregue las cabeceras "Content-Type" para HTML y con estado 404
             //Escriba la respuesta con res.end con el texto  `<html><body><h1>Error 404</h1></body></html>`
-
-                
-
+            res.setHeader("Content-Type","text/html")
+            res.writeHead(404)
+            res.end('<html><body><h1>Error 404</h1></body></html>');
             /* Fin */
             break;
 
