@@ -1,0 +1,14 @@
+<ul class="list-group list-group-horizontal justify-content-center mb-5">
+	
+	
+	<!-- Utilice la directiva *ngFor para iterar el arreglo redes -->
+	<ng-container *ngFor="let red of redes">
+		<!-- Utilice la directiva *ngIf para evaluar el atributo show del elemento -->
+		<li class="list-group-item border-0" *ngIf="red.show">
+			<a [href]="red.href" class="text-primary">
+				<img width="25" [src]="red.src" [alt]="red.alt">
+			</a>
+		</li>
+	</ng-container>
+
+</ul>
